@@ -1,0 +1,50 @@
+body{
+    height: 97%;
+    width: 97%;
+    margin: auto;
+    background-color: beige;
+}
+
+#name{
+    display: flex;
+    background-color: rgb(122, 185, 185);
+    border-radius: 55px;
+    width: 425px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#name_item_1{
+    height: 100px;
+    border-radius: 55px;
+}
+
+#name_item_2{
+    font-size: 45px;
+    text-align: center;
+    text-transform: capitalize;
+    padding-top: 20px;
+    padding-left: 18px;
+}
+
+#nav_bar{
+    display: flex;
+    background-color: rgb(234, 247, 247);
+    border-radius: 25px;
+    margin-top: 5px;
+}
+
+.nav_bar_item{
+    padding: 0px 1% 0px 2%;
+    font-size: 20px;
+    background-color: rgb(201, 225, 225);
+    text-transform: capitalize;
+}
+
+#nav_bar_item_1{
+    border-radius: 25px 0px 0px 25px;
+}
+
+.nav_bar_item:hover{
+    background-color: rgb(141, 181, 168);
+}

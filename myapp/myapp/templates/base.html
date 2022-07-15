@@ -1,0 +1,27 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="name" id="name">
+        <img class="name_item" id="name_item_1" src="{% static 'images/logo_1.jpg' %}" alt="sorry">
+        <div class="name_item" id="name_item_2">the trial web</div>
+    </div>
+    <div class="nav_bar" id="nav_bar">
+        <div class="nav_bar_item" id="nav_bar_item_1">About us</div>
+        <div class="nav_bar_item" id="nav_bar_item_2">home</div>
+    </div>
+    {% block content %}
+        <p>thos is the content of the base <br>ehich is basically default</p>
+    {% endblock content%}
+    <p><a href="/contact">Contact</a></p>
+</body>
+</html>
