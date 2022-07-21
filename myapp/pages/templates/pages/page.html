@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'first.css' %}" type="text/css">
     <title>Document</title>
 </head>
 <body>
     <p>hello</p>
     {% block content %}
-        <h1>{{ obj.title}}</h1>
-        <p>tis page is updated on {{ obj.update_date }}</p>
-        <p>{{ page_list }}</p>
-        <a href="/services">services</a>
+        <h2>Home</h2>
+        <div class="home_content" id="home_content_1">
+            <div class="home_log_sign_up" id="home_sign_up_1">log in and sign up pages</div>
+            <div class="home_content" id="home_content">this is the content pages</div>
+        </div>
     {% endblock content %}
 </body>
 </html>

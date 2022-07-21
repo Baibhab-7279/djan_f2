@@ -8,7 +8,6 @@ body{
 
 a:link{
     text-decoration: none;
-    color: antiquewhite;
 }
 
 #name{
@@ -45,7 +44,6 @@ a:link{
     font-size: 20px;
     background-color: rgb(201, 225, 225);
     text-transform: capitalize;
-    text-decoration: none;
 }
 
 #nav_bar_item_1{
@@ -54,4 +52,9 @@ a:link{
 
 .nav_bar_item:hover{
     background-color: rgb(141, 181, 168);
+    color: brown;
+}
+
+#home_content_1{
+    display: flex;
 }
