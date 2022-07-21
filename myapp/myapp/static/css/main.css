@@ -5,6 +5,12 @@ body{
     background-color: beige;
 }
 
+
+a:link{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
 #name{
     display: flex;
     background-color: rgb(122, 185, 185);
@@ -48,8 +54,4 @@ body{
 
 .nav_bar_item:hover{
     background-color: rgb(141, 181, 168);
-}
-
-a:link{
-    text-decoration: none;
 }
