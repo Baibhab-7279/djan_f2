@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page
+from .models import Page,Contactform
 
 # Register your models here.
 class PageAdmin(admin.ModelAdmin):
@@ -7,4 +7,8 @@ class PageAdmin(admin.ModelAdmin):
     ordering = ("title",)
     search_fields = ("title",)
 
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ("yourname","email")
+
 admin.site.register(Page,PageAdmin)
+admin.site.register(Contactform,ContactAdmin)

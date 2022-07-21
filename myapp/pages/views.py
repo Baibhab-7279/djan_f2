@@ -3,8 +3,7 @@ from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Page
-from .forms import contactform
+from .models import Page,Contactform
 
 
 
@@ -27,6 +26,6 @@ def contact(request):
         subject = request.POST["subject"]
         message = request.POST["message"]
         print(name,email,subject,message)
-        cont = contactform(yourname=yourname,email=email,subject=subject,message=message)
+        cont = Contactform(yourname=yourname,email=email,subject=subject,message=message)
         cont.save()
     return render(request, "pages/contact.html")

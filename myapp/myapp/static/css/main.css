@@ -39,6 +39,7 @@ body{
     font-size: 20px;
     background-color: rgb(201, 225, 225);
     text-transform: capitalize;
+    text-decoration: none;
 }
 
 #nav_bar_item_1{
