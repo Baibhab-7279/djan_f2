@@ -51,10 +51,28 @@ a:link{
 }
 
 .nav_bar_item:hover{
-    background-color: rgb(141, 181, 168);
+    background-color: rgb(108, 155, 140);
     color: brown;
 }
 
 #home_content_1{
     display: flex;
+}
+
+.home_log_sign_up{
+    width: 20%;
+    background-color: aquamarine;
+}
+
+.home_content{
+    width: 100%;
+    background-color: blue;
+}
+
+.loginsignbutton{
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
 }

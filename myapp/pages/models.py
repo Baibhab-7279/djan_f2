@@ -18,3 +18,13 @@ class Contactform(models.Model):
 
     def __str__(self):
         return self.yourname
+
+class Profile(models.Model):
+    username = models.CharField(max_length=50)
+    gender = models.CharField(max_length=10)
+    semester = models.CharField(max_length=10)
+    email = models.EmailField(max_length=100)
+    password = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.username

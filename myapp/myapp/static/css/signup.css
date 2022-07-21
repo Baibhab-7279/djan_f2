@@ -1,0 +1,71 @@
+body{
+    height: 97%;
+    width: 97%;
+    background-color: rgb(146, 142, 142);
+}
+
+a:link{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+
+.signinmaindiv{
+    position: absolute;
+    height: 420px;
+    width: 290px;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    margin: auto;
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+#headerofsignin{
+    text-align: center;
+    font-size: 60px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.signin_1{
+    width: 85%;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.signinput{
+    margin-bottom: 5px;
+}
+
+.signin_bu{
+    float: right;
+    margin-right: 25px;
+    width: 55px;
+}
+
+#signinmsg{
+    text-align: center;
+}
+
+#semester{
+    margin-left: 6px;
+}
+
+#emailinput{
+    margin-left: 26px;
+}
+
+#gender{
+    margin-left: 18px;
+}
+
+#username{
+    margin-left: 1px;
+}
+
+#password{
+    margin-left: 1px;
+}
