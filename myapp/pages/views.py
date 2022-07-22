@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Page,Contactform,Profile
@@ -28,6 +28,31 @@ def contact(request):
     return render(request, "pages/contact.html")
 
 def login(request):
+    if(request.method == "POST"):
+        username = request.POST["username"]
+        password = request.POST["password"]
+        try:
+            userprofile = Profile.objects.get(username=username)
+            print(userprofile.username)
+            if(username == userprofile.username):
+                userpassword = userprofile.password
+                print(userpassword)
+                if(password == userpassword):
+                    semester = userprofile.semester
+                    gender = userprofile.gender
+                    email = userprofile.email
+                    loginans = {
+                        "ans": True,
+                        "data": [semester,gender,email]
+                    }
+                    return render(request,"pages/page.html",loginans)
+                
+                else:
+                    print("password incorrect")
+            else:
+                print("incorrect userprofile")
+        except:
+            print("not there")
     return render(request,"pages/login.html")
 
 def signup(request):
@@ -39,4 +64,5 @@ def signup(request):
         password = request.POST["password"]
         prof = Profile(username=username, gender=gender, semester=semester, email=email,password=password)
         prof.save()
+        return render(request,"pages/page.html")
     return render(request,"pages/signup.html")

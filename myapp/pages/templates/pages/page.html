@@ -18,9 +18,17 @@
         <h2>Home</h2>
         <div class="home_content" id="home_content_1">
             <div class="home_log_sign_up" id="home_sign_up_1">
+
+            {% if ans %}
+                <div>this</div>
+                <div class="logoutbutton"><a href="/logout">logout</a></div>
+
+            {% else %}
                 <div class="loginsignbutton"><a href="/login">login</a></div>
-                <div class="loginsignbutton">signup</div>
+                <div class="loginsignbutton"><a href="/signup">signup</a></div>
             </div>
+            {% endif %}
+
             <div class="home_content" id="home_content">this is the content pages nnnnn</div>
         </div>
     {% endblock content %}

@@ -65,7 +65,7 @@ a:link{
 }
 
 .home_content{
-    width: 100%;
+    width: 80%;
     background-color: blue;
 }
 
@@ -76,3 +76,12 @@ a:link{
     text-transform: capitalize;
     font-size: 1.2em;
 }
+
+.logoutbutton{
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+}
+
