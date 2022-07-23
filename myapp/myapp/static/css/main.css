@@ -2,86 +2,87 @@ body{
     height: 97%;
     width: 97%;
     margin: auto;
-    background-color: beige;
+    background-color: rgb(142, 162, 185);
 }
-
 
 a:link{
     text-decoration: none;
-}
-
-#name{
-    display: flex;
-    background-color: rgb(122, 185, 185);
-    border-radius: 55px;
-    width: 425px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#name_item_1{
-    height: 100px;
-    border-radius: 55px;
-}
-
-#name_item_2{
-    font-size: 45px;
-    text-align: center;
     text-transform: capitalize;
-    padding-top: 20px;
-    padding-left: 18px;
 }
 
-#nav_bar{
+.maintitle{
     display: flex;
-    background-color: rgb(234, 247, 247);
+    height: 105px;
+    margin-top: 10px;
+    background-color: rgb(200, 239, 239);
+}
+
+#mainlogo1{
+    height: 75px;
+    width: 75px;
+    border-radius: 71px;
+    margin-top: 16px;
+    margin-left: 10px;
+    margin-right: 2px;
+}
+
+#secondarytitle2{
+    font-size: 45px;
+    margin-top: 24px;
+    text-transform: capitalize;
+}
+
+#secondarytitle3{
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.tertiarytitle{
+    padding: 10px;
+    background-color: aqua;
+    margin-top: 10px;
+    width: 80px;
     border-radius: 25px;
+    text-align: center;
+}
+
+#fourthtitle1{
+    display: flex;
+}
+
+.fourthtitleimage{
+    width: 75px;
+    height: 75px;
+    border-radius: 71px;
+    margin-top: 15px;
+}
+
+.fourthtitleuserprofile{
+    margin-top: 24px;
+    margin-left: 5px;
+}
+
+
+#navbar1{
+    display: flex;
+    background-color: rgb(200, 239, 239);;
     margin-top: 5px;
 }
 
-.nav_bar_item{
-    padding: 0px 1% 0px 2%;
-    font-size: 20px;
-    background-color: rgb(201, 225, 225);
+.navbaritem{
+    padding: 5px;
     text-transform: capitalize;
 }
 
-#nav_bar_item_1{
-    border-radius: 25px 0px 0px 25px;
+#navbaritem1{
+    padding-left: 10px;
 }
 
-.nav_bar_item:hover{
-    background-color: rgb(108, 155, 140);
-    color: brown;
+#navbaritem4{
+    margin-right: 5px;
+    margin-left: auto;
 }
 
-#home_content_1{
-    display: flex;
+.navbaritem:hover{
+    background-color: aqua;
 }
-
-.home_log_sign_up{
-    width: 20%;
-    background-color: aquamarine;
-}
-
-.home_content{
-    width: 80%;
-    background-color: blue;
-}
-
-.loginsignbutton{
-    width: 95%;
-    margin: auto;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 1.2em;
-}
-
-.logoutbutton{
-    width: 95%;
-    margin: auto;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 1.2em;
-}
-

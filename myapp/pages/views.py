@@ -1,9 +1,18 @@
+from distutils.command.build_scripts import first_line_re
+from email.errors import MalformedHeaderDefect
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from .models import Page,Contactform,Profile
 
 
+
+username = "Baibhab@7279"
+password = "Baibhab@7279"
+ans = False
+gender = "male"
+semester = "first"
+email = "mrbaibhab5816@gmail.com"
 
 # Create your views here.
 def home(request):
@@ -12,10 +21,10 @@ def home(request):
         "obj": pg,
         "page_list": Page.objects.all()
     }
-    return render(request, 'pages/page.html', context)
+    return render(request, 'pages/home.html',check())
 
-def services(request):
-    return render(request, 'pages/page_1.html')
+def aboutus(request):
+    return render(request, 'pages/aboutus.html',check())
 
 def contact(request):
     if(request.method == 'POST'):
@@ -25,9 +34,12 @@ def contact(request):
         message = request.POST["message"]
         cont = Contactform(yourname=yourname,email=email,subject=subject,message=message)
         cont.save()
-    return render(request, "pages/contact.html")
+    
+    return render(request, "pages/contact.html",check())
 
 def login(request):
+    global username,gender,semester,email,ans
+    ans = False
     if(request.method == "POST"):
         username = request.POST["username"]
         password = request.POST["password"]
@@ -41,11 +53,9 @@ def login(request):
                     semester = userprofile.semester
                     gender = userprofile.gender
                     email = userprofile.email
-                    loginans = {
-                        "ans": True,
-                        "data": [semester,gender,email]
-                    }
-                    return render(request,"pages/page.html",loginans)
+                    ans = True
+                    
+                    return render(request,"base.html",check())
                 
                 else:
                     print("password incorrect")
@@ -66,3 +76,20 @@ def signup(request):
         prof.save()
         return render(request,"pages/page.html")
     return render(request,"pages/signup.html")
+
+def logout(request):
+    global ans
+    ans = False
+    return render(request,"base.html",check())
+
+
+
+def check():
+    loginans = {
+        "ans": ans,
+        "username": username,
+        "gender": gender,
+        "semester": semester,
+        "email": email,
+    }
+    return loginans

@@ -11,18 +11,58 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="name" id="name">
-        <img class="name_item" id="name_item_1" src="{% static 'images/logo_1.jpg' %}" alt="sorry">
-        <div class="name_item" id="name_item_2">the trial web</div>
+    {% block title %}
+    <div class="maintitle" id="maintitle1">
+        <div class="secondarytitle" id="secondarytitle1">
+            <img class="mainlogo" id="mainlogo1" src="{% static 'images/logo_1.jpg' %}" alt="sorry">
+        </div>        
+        
+        <div class="secondarytitle" id="secondarytitle2">mo-doc</div>        
+        
+        <div class="secondarytitle" id="secondarytitle3">
+            
+            {% if ans %}
+            <div class="fourthtitle" id="fourthtitle1">
+
+                {% if gender == "female" %}
+                <img class="fourthtitleimage" id="fourthtitleimage1" src="{% static 'images/femaleprofile.jpg' %}" alt="sorry">
+
+                {% else %}
+                <img class="fourthtitleimage" id="fourthtitleimage2" src="{% static 'images/maleprofile.png' %}" alt="sorry">
+
+                {% endif %}
+
+                <div class="fourthtitleuserprofile" id="fourthtitleuserprofile1">
+                    <div>{{ username }}</div>
+                    <div>{{ email }}</div>
+                    <div>{{ semester }}</div>
+                    <div><a href="/logout">logout</a></div>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="tertiarytitle" id="login"><a href="/login">login</a></div>
+            <div class="tertiarytitle" id="signup"><a href="/signup">signup</a></div>
+            {% endif %}
+        
+        </div>            
     </div>
-    <div class="nav_bar" id="nav_bar">
-        <div class="nav_bar_item" id="nav_bar_item_1"><a href="/">Home</a></div>
-        <div class="nav_bar_item" id="nav_bar_item_3"><a href="/services">Services</a></div>
-        <div class="nav_bar_item" id="nav_bar_item_2"><a href="/contact">Contact</a></div>
+    {% endblock title %}
+
+    {% block navbar %}
+    <div class="navbar" id="navbar1">
+        <div class="navbaritem" id="navbaritem1"><a href="/">home</a></div>
+        <div class="navbaritem" id="navbaritem2"><a href="/contact">contact</a></div>
+        <div class="navbaritem" id="navbaritem3"><a href="/aboutus">aboutus</a></div>
+        <div class="navbaritem" id="navbaritem4"><input type="search" placeholder="search"></div>
     </div>
+    {% endblock navbar %}
+
     {% block content %}
-        <p>thos is the content of the base <br>which is basically default</p>
-    {% endblock content%}
+    {% endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
 
 </body>
 </html>
