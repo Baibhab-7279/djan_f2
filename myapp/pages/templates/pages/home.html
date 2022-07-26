@@ -3,19 +3,16 @@
 {% load static %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
-    <title>Document</title>
-</head>
-<body>
-    <p>hello</p>
-    {% block content %}
-    this is the home page
-    {% endblock content %}
-</body>
-</html>
+{% block content %}
+
+<div>
+    <div class="seondarynavbar">
+        <div>1st sem</div>
+        <div>2nd sem</div>
+        <div>3rd sem</div>
+        <div>4th sem</div>
+    </div>    
+    <div class="maincontent"></div>    
+</div>
+
+{% endblock content %}

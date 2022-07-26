@@ -1,9 +1,9 @@
-from distutils.command.build_scripts import first_line_re
-from email.errors import MalformedHeaderDefect
+
+from .forms import UserdataForm
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Page,Contactform,Profile
+from .models import Page,Contactform,Profile,Userdata
 
 
 
@@ -16,11 +16,6 @@ email = "mrbaibhab5816@gmail.com"
 
 # Create your views here.
 def home(request):
-    pg = Page.objects.get(id = 1)
-    context = {
-        "obj": pg,
-        "page_list": Page.objects.all()
-    }
     return render(request, 'pages/home.html',check())
 
 def aboutus(request):
@@ -28,7 +23,7 @@ def aboutus(request):
 
 def contact(request):
     if(request.method == 'POST'):
-        yourname = request.POST["name"]
+        yourname = request.POST["name_co"]
         email = request.POST["email"]
         subject = request.POST["subject"]
         message = request.POST["message"]
@@ -55,7 +50,7 @@ def login(request):
                     email = userprofile.email
                     ans = True
                     
-                    return render(request,"base.html",check())
+                    return redirect("/")
                 
                 else:
                     print("password incorrect")
@@ -67,6 +62,9 @@ def login(request):
 
 def signup(request):
     if(request.method == 'POST'):
+        global ans,username,gender,email,semester
+        ans = True
+
         username = request.POST["username"]
         gender = request.POST["gender"]
         semester = request.POST["semester"]
@@ -74,13 +72,40 @@ def signup(request):
         password = request.POST["password"]
         prof = Profile(username=username, gender=gender, semester=semester, email=email,password=password)
         prof.save()
-        return render(request,"pages/page.html")
+
+        return redirect("/")
     return render(request,"pages/signup.html")
 
 def logout(request):
     global ans
     ans = False
-    return render(request,"base.html",check())
+    return redirect("/")
+
+def upload(request):
+    if request.method == 'POST':  
+        form = UserdataForm(request.POST, request.FILES)
+        if form.is_valid(): 
+            global username 
+            newauth = form.save(commit=False)  
+            newauth.username = username
+            newauth.save()
+
+
+            # Getting the current instance object to display in the template  
+            img_object = form.instance
+
+            details = check()
+            details["form"] = form 
+            details["img_obj"] = img_object
+
+              
+            return render(request, 'pages/upload.html', details)  
+    else:  
+        form = UserdataForm()
+        pas = check()
+        pas["form"] = form 
+    return render(request,"pages/upload.html",pas)
+
 
 
 

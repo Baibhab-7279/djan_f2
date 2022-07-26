@@ -1,3 +1,6 @@
+from datetime import datetime
+from email.policy import default
+
 from django.db import models
 
 # Create your models here.
@@ -28,3 +31,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Userdata(models.Model):
+    username = models.CharField(max_length=50)
+    image = models.ImageField(upload_to = "images",blank=True)
+    blogtext = models.TextField(max_length=1000)
+    uploadtime = models.DateTimeField(default=datetime.now,blank=True)
+    
+    def __str__(self):
+        return self.username
+
