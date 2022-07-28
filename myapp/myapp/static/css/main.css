@@ -1,8 +1,32 @@
 body{
-    height: 97%;
-    width: 97%;
+    height: 100%;
+    width: 100%;
     margin: auto;
     background-color: rgb(142, 162, 185);
+}
+
+.alert1{
+    padding: 20px;
+    background-color: #85e072;
+    color: white;
+    width: 400px;
+    margin: auto;
+    margin-top: 10px;
+}
+  
+.closebtn1{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn1:hover{
+    color: black;
 }
 
 a:link{
@@ -123,4 +147,38 @@ a:link{
 .seconadrynavbar{
     display: flex;
     background-color: rgb(121, 179, 179);
+}
+
+.image{
+    height: 500px;
+    width: 500px;
+}
+
+.uploadform{
+    display: flex;
+    background-color: rgb(121, 179, 179);
+    justify-content: center;
+    height: 350px;
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#uploadformbutton{
+    margin-top: 15px;
+    margin-bottom: 1px;
+    margin-left: 150px;
+    margin-right: 1px;
+}
+
+.unblockcontent{
+    display: flex;
+    flex-direction: column;
+}
+
+.unuploadsadimg{
+    margin: auto;
+    height: auto;
+    width: auto;
 }

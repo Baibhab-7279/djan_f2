@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,40 +10,28 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
     <title>Document</title>
 </head>
+
 <body>
+    {% if alertmessage %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ alertmessage }}
+    </div>
+    {% endif %}
+
     <div class="signinmaindiv">
         <p id="headerofsignin">welcome</p>
-        <form action="/signup" method="post">
+        <form action="/signup" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset  class="signin_1" id="lo_11" >
-                <legend>login</legend>
+            <fieldset class="signin_1" id="lo_11">
+                <legend>Signup</legend>
                 <div id="p_lo_11">
-                    <label class="signinput" for="username">username</label>
-                    <input class="signinput" type="text" placeholder="user name" required="required" id="username" name="username"><br>
-                    <label class="signinput" for="gender">gender</label>
-                    <select class="signinput" name="gender" id="gender">
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                        <option value="other">other</option>
-                    </select><br>
-                    <label class="signinput" for="semester">semester</label>
-                    <select class="signinput" name="semester" id="semester">
-                        <option value="first">1st</option>
-                        <option value="second">2nd</option>
-                        <option value="third">3rd</option>
-                        <option value="fourth">4th</option>
-                        <option value="fifth">5th</option>
-                        <option value="sixth">6th</option>
-                    </select><br>
-                    <label class="signinput" for="email">email</label>
-                    <input class="signinput" type="email" placeholder=".....@gmail.com" id="emailinput" name="email"><br>
-                    <label class="signinput" for="password">password</label>
-                    <input class="signinput" type="password" placeholder="password" name="password" maxlength="4" id="password"><br>
-                    <button class="signin_bu" type="submit">signup</button>
+                    {{ profileform.as_p }}
+                    <div><button id="signupbutton" type="submit">submit</button></div>
                 </div>
             </fieldset>
         </form>
-        <p id="signinmsg">hello,welcome to a different world</p>    
     </div>
 </body>
+
 </html>

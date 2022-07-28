@@ -1,8 +1,31 @@
 body{
-    height: 97%;
-    width: 97%;
-    background-color: rgb(146, 142, 142);
+    height: 100%;
+    width: 100%;
+    background-color: rgb(189, 183, 183);
 }
+
+.alert{
+    padding: 20px;
+    background-color: #e46b63;
+    color: white;
+    width: 400px;
+    margin: auto;
+  }
+  
+  .closebtn{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover{
+    color: black;
+  }
 
 a:link{
     text-decoration: none;
@@ -12,60 +35,48 @@ a:link{
 
 .signinmaindiv{
     position: absolute;
-    height: 420px;
+    height: 450px;
     width: 290px;
     left: 0%;
     right: 0%;
     top: 0%;
     bottom: 0%;
     margin: auto;
-    background-color: aliceblue;
+    background-color: rgb(188, 209, 227);
     border-radius: 25px;
+    justify-content: center;
 }
 
 #headerofsignin{
     text-align: center;
-    font-size: 60px;
-    margin-top: 60px;
-    margin-bottom: 20px;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .signin_1{
-    width: 85%;
-    margin: auto;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
-.signinput{
-    margin-bottom: 5px;
+.profile{
+    border-radius: 10px;
+    height: 20px;
+    margin-bottom: 10px;
 }
 
-.signin_bu{
-    float: right;
-    margin-right: 25px;
-    width: 55px;
-}
-
-#signinmsg{
-    text-align: center;
-}
-
-#semester{
-    margin-left: 6px;
-}
-
-#emailinput{
-    margin-left: 26px;
-}
-
-#gender{
-    margin-left: 18px;
-}
-
-#username{
+#id_username,#id_email{
+    width: 240px;
     margin-left: 1px;
 }
 
-#password{
+#id_semester{
     margin-left: 1px;
+}
+
+#id_gender{
+    margin-left: 12px;
+}
+
+#signupbutton{
+    margin-left: 188px;
 }

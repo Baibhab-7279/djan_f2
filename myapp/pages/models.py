@@ -1,5 +1,4 @@
 from datetime import datetime
-from email.policy import default
 
 from django.db import models
 
@@ -23,21 +22,28 @@ class Contactform(models.Model):
         return self.yourname
 
 class Profile(models.Model):
+    sem = (("1st","1st"),("2nd","2nd"),("3rd","3rd"),("4th","4th"))
+    gen = (("male","male"),("female","female"),("other","other"))
     username = models.CharField(max_length=50)
-    gender = models.CharField(max_length=10)
-    semester = models.CharField(max_length=10)
-    email = models.EmailField(max_length=100)
+    email = models.EmailField(primary_key=True, max_length=100)
     password = models.CharField(max_length=100)
+    semester = models.CharField(max_length=10,choices=sem)
+    gender = models.CharField(max_length=10,choices=gen)
+    profileimage = models.ImageField(upload_to = "profileimage",blank=True)
+    profileimagename = models.CharField(blank=True,default="profileimage/",max_length=100)
 
     def __str__(self):
         return self.username
 
 
 class Userdata(models.Model):
+    ch = (("public","public"),("private","private"))
     username = models.CharField(max_length=50)
     image = models.ImageField(upload_to = "images",blank=True)
-    blogtext = models.TextField(max_length=1000)
+    blogtext = models.TextField(default="",max_length=1000)
     uploadtime = models.DateTimeField(default=datetime.now,blank=True)
+    choise = models.CharField(blank=True,choices=ch,default="public",max_length=20)
+    imagename = models.CharField(blank=True,default="images/",max_length=100)
     
     def __str__(self):
         return self.username

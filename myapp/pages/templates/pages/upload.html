@@ -4,17 +4,20 @@
 
 {% block content %}
 
+{% if img_obj %}
+    <div class="alert1">
+        <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ alertmessage }}
+    </div>
+{% endif %}
+
 <div class="uploadform">
-    <form method="post" enctype="multipart/form-data">  
-        {% csrf_token %}  
-        {{ form.as_p }}  
-        <button type="submit">Upload</button>  
-    </form>  
-  
-    {% if img_obj %}  
-        <h3>Succesfully uploaded : {{img_obj.caption}}</h3>  
-        <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">  
-    {% endif %}  
+    <form method="post" class="subuploadform" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="uploadformbutton" type="submit">Upload</button>
+    </form>
+
 </div>
 
 {% endblock content %}

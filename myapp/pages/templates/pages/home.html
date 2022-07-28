@@ -7,12 +7,17 @@
 
 <div>
     <div class="seondarynavbar">
-        <div>1st sem</div>
-        <div>2nd sem</div>
-        <div>3rd sem</div>
-        <div>4th sem</div>
     </div>    
-    <div class="maincontent"></div>    
+    <div class="maincontent">
+        {% if images %}
+	    {% for image in images %}
+		<img class="image" src="media/{{ image }}" alt="{{ image }}">
+	    {% endfor %}
+        {% else %}
+	    <p>No image available.</p>
+        {% endif %}
+    </div>    
 </div>
 
 {% endblock content %}
+
