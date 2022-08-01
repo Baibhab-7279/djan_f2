@@ -1,8 +1,8 @@
+
 body{
     height: 100%;
-    width: 100%;
-    margin: auto;
-    background-color: rgb(142, 162, 185);
+    background-color: rgb(191, 195, 201);
+    margin-top: 10px;
 }
 
 .alert1{
@@ -36,49 +36,57 @@ a:link{
 
 .maintitle{
     display: flex;
-    height: 105px;
+    min-height: 400px;
     margin-top: 10px;
-    background-color: rgb(200, 239, 239);
+    /*background-color: rgb(200, 239, 239);*/
+    background-image: url("/static/images/backgroundimage2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px 25px 0 0;
 }
 
 #mainlogo1{
-    height: 75px;
-    width: 75px;
-    border-radius: 71px;
-    margin-top: 16px;
-    margin-left: 10px;
+    height: 150px;
+    width: 150px;
     margin-right: 2px;
 }
 
-#secondarytitle2{
-    font-size: 45px;
-    margin-top: 24px;
+#maintitle{
+    font-size: 27px;
     text-transform: capitalize;
+    margin-top: 60px;
 }
 
-#secondarytitle3{
-    margin-right: 20px;
-    margin-left: auto;
+.secondarytitle{
+    display: flex;
+    margin-top: 145px;
 }
 
 .tertiarytitle{
     padding: 10px;
     background-color: aqua;
-    margin-top: 10px;
+    margin-top: 200px;
     width: 80px;
     border-radius: 25px;
     text-align: center;
+    height: 22px;
+    margin-right: 15px;
+    margin-left: auto;
 }
 
 #fourthtitle1{
     display: flex;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-top: 275px;
 }
 
 .fourthtitleimage{
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     border-radius: 71px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .fourthtitleuserprofile{
@@ -89,7 +97,7 @@ a:link{
 
 #navbar1{
     display: flex;
-    background-color: rgb(200, 239, 239);;
+    background-color:  rgb(240 207 49);
     margin-top: 5px;
 }
 
@@ -108,18 +116,19 @@ a:link{
 }
 
 .navbaritem:hover{
-    background-color: aqua;
+    background-color: rgb(183, 196, 139);
 }
 
 .contactform{
     display: flex;
-    background-color: rgb(121, 179, 179);
+    background-color: rgb(212 205 88);
     width: 250px;
     height: 330px;
     justify-content: center;
     border-radius: 25px;
     margin: auto;
     margin-top: 70px;
+    margin-bottom: 100px;
 }
 
 .inputform{
@@ -156,19 +165,21 @@ a:link{
 
 .uploadform{
     display: flex;
-    background-color: rgb(121, 179, 179);
+    background-color: rgb(212 205 88);
     justify-content: center;
     height: 350px;
     width: 400px;
     margin: auto;
     margin-top: 20px;
     padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 100px;
 }
 
 #uploadformbutton{
     margin-top: 15px;
     margin-bottom: 1px;
-    margin-left: 150px;
+    margin-left: 257px;
     margin-right: 1px;
 }
 
@@ -179,6 +190,248 @@ a:link{
 
 .unuploadsadimg{
     margin: auto;
-    height: auto;
-    width: auto;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+
+.homeprofileimage{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.displayprofile{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgb(222 222 196);
+    margin-top: 10px;
+    min-height: 580px;
+    width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+}
+
+.displayprofile1{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.homeprofilename{
+    padding-left: 10px;
+    width: 350px;
+}
+
+.homeimage{
+    height: 500px;
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#homeprofileblogtext{
+    width: 350px;
+    word-wrap: break-word;
+}
+
+#id_blogtext{
+    resize: none;
+    word-wrap: break-word;
+}
+
+.aboutusprofileimage{
+    position: relative;
+    top: -50px;
+    left: 96px;
+    width: 100px;
+    height: 100px;   
+    margin-bottom: 20px;
+}
+
+.aboutusmainprofilename{
+    font-size: 25px;
+    margin-top: -40px;
+    margin-left: 15px;
+}
+
+.aboutusmaintitle{
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 520px;
+    background-color: rgb(222 222 196);
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.aboutusparagraph{
+    padding: 30px;
+}
+
+.aboutfooterapp{
+    display: flex;
+    justify-content: center;
+}
+
+.aboutfootercontact{
+    font-size: 25px;
+    margin-left: 82px;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.aboutfooterappimage{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 700px){
+
+    .alert1{
+        padding: 20px;
+        background-color: #85e072;
+        color: white;
+        width: 290px;
+        margin: auto;
+        margin-top: 10px;
+    }
+      
+    .closebtn1{
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+      
+    .closebtn1:hover{
+        color: black;
+    }
+    
+
+    .maintitle{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    
+    #mainlogo1{
+        height: 120px;
+        width: 120px;
+        margin-right: 2px;
+    }
+
+    #maintitle{
+        font-size: 25px;
+        margin-top: 52px;
+    }
+
+    .secondarytitle{
+        margin-top: 145px;
+        justify-content: center;
+    }    
+
+    
+    .tertiarytitle{
+        margin-bottom: 20px;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #fourthtitle1{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1;
+    }
+
+    .fourthtitleimage{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .displayprofile{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin-top: 10px;
+        min-height: 345px;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+    }
+
+    .homeprofilename{
+        padding-left: 10px;
+        width: 200px;
+    }
+
+    .homeimage{
+        height: 270px;
+        width: 270px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #homeprofileblogtext{
+        width: 210px;
+        word-wrap: break-word;
+    }
+
+    .uploadform{
+        height: 300px;
+        max-width: 300px;
+        margin: auto;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 25px;
+        margin-bottom: 50px;
+    }
+
+    .subuploadform{
+        height: 300px;
+        max-width: 260px;
+    }
+
+    #id_blogtext{
+        height: 100px;
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #uploadformbutton{
+        margin-top: 15px;
+        margin-bottom: 1px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .unuploadsadimg{
+        margin: auto;
+        max-width: 300px;
+        max-height: 300px;
+    }    
+
+    .aboutusprofileimage{
+        width: 100px;
+        height: 100px;   
+    }
+
 }

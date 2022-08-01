@@ -9,12 +9,12 @@ class UserdataForm(forms.ModelForm):
         # To specify the model to be used to create form  
         model = Userdata
         # It includes all the fields of model  
-        exclude = ("username","uploadtime","imagename")
+        exclude = ("username","uploadtime","imagename","email",)
 
     def __init__(self, *args, **kwargs):
         super(UserdataForm, self).__init__(*args, **kwargs)
         self.fields['blogtext'].label = ""
-        self.fields['blogtext'].widget = forms.Textarea(attrs={'placeholder': 'enter your blog here'})
+        self.fields['blogtext'].widget = forms.Textarea(attrs={'placeholder': 'enter your blog here',"cols": "50"})
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -29,5 +29,6 @@ class ProfileForm(forms.ModelForm):
 
         self.fields['username'].widget = forms.TextInput(attrs={'placeholder': 'username',"class":"profile"})
         self.fields['email'].widget = forms.TextInput(attrs={'placeholder': '.....@gmail.com',"class":"profile"})
+        self.fields["password"].widget = forms.PasswordInput()
         
 

@@ -1,8 +1,15 @@
 from datetime import datetime
+from django import forms
 
 from django.db import models
 
 # Create your models here.
+class Title(models.Model):
+    title = models.CharField(max_length=30,default="post it")
+
+    def __str__(self):
+        return self.title
+
 class Page(models.Model):
     title = models.CharField(max_length=30)
     permalink = models.CharField(max_length=12,unique=True)
@@ -38,7 +45,8 @@ class Profile(models.Model):
 
 class Userdata(models.Model):
     ch = (("public","public"),("private","private"))
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50,default="Baibhab@7279")
+    email = models.EmailField(max_length=100)
     image = models.ImageField(upload_to = "images",blank=True)
     blogtext = models.TextField(default="",max_length=1000)
     uploadtime = models.DateTimeField(default=datetime.now,blank=True)

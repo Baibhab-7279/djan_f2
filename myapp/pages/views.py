@@ -1,14 +1,16 @@
 import os
+from turtle import title
 from django.conf import settings
 from .forms import UserdataForm, ProfileForm
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Page, Contactform, Profile, Userdata
+from .models import Page, Contactform, Profile, Userdata, Title
 
 
 username = "Baibhab@7279"
 password = "Baibhab@7279"
+title = "post it"
 ans = False
 gender = "male"
 semester = "first"
@@ -18,24 +20,81 @@ profileimage = "maleprofile.png"
 
 # Create your views here.
 def home(request):
-    path = settings.MEDIA_ROOT
-    img_list = os.listdir(path + '/images')
+    # path = settings.MEDIA_ROOT
+    # img_list = os.listdir(path + '/images')
+
     ch = check()
-    #ch["images"] = img_list
+
+    global title
+    title = Title.objects.last()
+    print(title)
+    if(title):
+        ch["title"] = title
+
+    else:
+        ch["title"] = title
+
+    # ch["images"] = img_list
 
     print(ch)
-    if(ans == True):
-        a = Userdata.objects.filter(choise="public").values("image")
 
+    a = Userdata.objects.filter(choise="public").values("image", "blogtext","email")
+    print(a)
+    c = []
+    d = []
+    for i in range(len(a)):
+        b = a[i]
+        print(b)
+        c.append(b["image"])
+        # print(c)
+        e = b["blogtext"]
+
+        f = b["email"]
+        g = f.split("@")
+        h = f"{g[0]}.jpg"
+
+        c.append(e)
+        c.append(h)
+        d.append(c)
+        # print(d)
         c = []
-        for i in range(len(a)):
-            b = a[i]
-            c.append(b["image"])
+        # c.append(b["image"])
+        # d.append(b["blogtext"])
+    print(c)
+    print(d)
+    ch = check()
+    # ch["images"] = c
+    ch["content"] = d
+
+    if(ans == True):
+        a1 = Userdata.objects.filter(choise="private").values("image", "blogtext","email")
+        print(a)
+        for i in range(len(a1)):
+            b1 = a1[i]
+            print(b1)
+            c.append(b1["image"])
+            # print(c)
+            e1 = b1["blogtext"]
+
+            f = b1["email"]
+            g = f.split("@")
+            h = f"{g[0]}.jpg"
+
+            c.append(e1)
+            c.append(h)
+            d.append(c)
+            # print(d)
+            c = []
+            # c.append(b["image"])
+            # d.append(b["blogtext"])
         print(c)
+        print(d)
         ch = check()
-        ch["images"] = c
+        # ch["images"] = c
+        ch["content"] = d
 
         return render(request, 'pages/home.html', ch)
+    print("we are here")
     return render(request, 'pages/home.html', ch)
 
 
@@ -49,8 +108,7 @@ def contact(request):
         email = request.POST["email"]
         subject = request.POST["subject"]
         message = request.POST["message"]
-        cont = Contactform(yourname=yourname, email=email,
-                           subject=subject, message=message)
+        cont = Contactform(yourname=yourname, email=email,subject=subject, message=message)
         cont.save()
 
     return render(request, "pages/contact.html", check())
@@ -59,18 +117,20 @@ def contact(request):
 def login(request):
 
     if(request.method == "POST"):
-        global profileimage, username, gender, semester, email, ans
+        
 
-        username = request.POST["username"]
-        password = request.POST["password"]
+        username1 = request.POST["username"]
+        password1 = request.POST["password"]
         try:
-            userprofile = Profile.objects.get(username=username)
+            global profileimage, username, gender, semester, email, ans
+            userprofile = Profile.objects.get(username=username1)
             print(userprofile.username)
-            if(username == userprofile.username):
+            if(username1 == userprofile.username):
                 userpassword = userprofile.password
                 print(userpassword)
-                if(password == userpassword):
+                if(password1 == userpassword):
                     ans = True
+                    username = userprofile.username 
                     semester = userprofile.semester
                     gender = userprofile.gender
                     email = userprofile.email
@@ -100,6 +160,9 @@ def signup(request):
 
         if(profileform.is_valid()):
             profileauth = profileform.save(commit=False)
+            profimg = profileauth.email
+            profimg1 = profimg.split("@")
+            profileauth.profileimage.name = f"{profimg1[0]}.jpg"
             profileauth.profileimagename = profileauth.profileimage.name
             profileauth.save()
             print(profileauth.profileimage.name)
@@ -119,10 +182,10 @@ def signup(request):
             profilecheck1 = check()
 
             # print(profileimage)
-            #profilecheck["ans"] = True
-            #profilecheck["profileimage"] = profileauth.profileimagename
+            # profilecheck["ans"] = True
+            # profilecheck["profileimage"] = profileauth.profileimagename
             # print(profilecheck["profileimage"])
-            #profilecheck["profileform"] = profileform
+            # profilecheck["profileform"] = profileform
             print(profilecheck1)
             return render(request, "base.html", profilecheck1)
         else:
@@ -152,20 +215,21 @@ def logout(request):
 
 
 def upload(request):
+    pas1 = check()
     if(ans == True):
         if request.method == 'POST':
             form = UserdataForm(request.POST, request.FILES)
             if form.is_valid():
-                global username
-                #a = Userdata.objects.get(username = username)
+                global username,email
+                # a = Userdata.objects.get(username = username)
                 newauth = form.save(commit=False)
                 newauth.username = username
                 newauth.imagename = newauth.image.name
+                newauth.email = email
                 newauth.save()
                 # print(a.image.name)
                 print(newauth.image.name)
-                a = Userdata.objects.filter(
-                    username='baibhab kumar pradhan').values()
+                a = Userdata.objects.filter(username='baibhab kumar pradhan').values()
                 print(a)
 
                 # Getting the current instance object to display in the template
@@ -181,7 +245,7 @@ def upload(request):
             pas = check()
             pas["form"] = form
     else:
-        return render(request, "pages/unupload.html")
+        return render(request, "pages/unupload.html", pas1)
 
     return render(request, "pages/upload.html", pas)
 
@@ -189,6 +253,7 @@ def upload(request):
 def check():
     loginans = {
         "ans": ans,
+        "title": title,
         "username": username,
         "gender": gender,
         "semester": semester,
