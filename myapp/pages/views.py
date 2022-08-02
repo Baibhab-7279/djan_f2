@@ -29,15 +29,15 @@ def home(request):
 
     # ch["images"] = img_list
 
-    print(ch)
+
 
     a = UserData.objects.filter(choise="public").values("image", "blogtext","email")
-    print(a)
+
     c = []
     d = []
     for i in range(len(a)-1,-1,-1):
         b = a[i]
-        print(b)
+        
         c.append(b["image"])
         # print(c)
         e = b["blogtext"]
@@ -53,8 +53,8 @@ def home(request):
         c = []
         # c.append(b["image"])
         # d.append(b["blogtext"])
-    print(c)
-    print(d)
+    
+
     ch = check()
     # ch["images"] = c
     ch["content"] = d
@@ -64,7 +64,7 @@ def home(request):
         print(a)
         for i in range(len(a1)):
             b1 = a1[i]
-            print(b1)
+
             c.append(b1["image"])
             # print(c)
             e1 = b1["blogtext"]
@@ -80,19 +80,17 @@ def home(request):
             c = []
             # c.append(b["image"])
             # d.append(b["blogtext"])
-        print(c)
-        print(d)
+
         ch = check()
         # ch["images"] = c
         ch["content"] = d
 
         return render(request, 'pages/home.html', ch)
-    print("we are here")
     
-    print(ch)
+
     global title2
     title1 = Title.objects.last()
-    print(title1)
+
     if(title1):
         ch["title"] = title1
 
@@ -128,10 +126,10 @@ def login(request):
         try:
             global profileimage, username, gender, semester, email, ans
             userprofile = Profile.objects.get(username=username1)
-            print(userprofile.username)
+            
             if(username1 == userprofile.username):
                 userpassword = userprofile.password
-                print(userpassword)
+                
                 if(password1 == userpassword):
                     ans = True
                     username = userprofile.username 
@@ -155,12 +153,12 @@ def login(request):
 
 def signup(request):
 
-    print("we are here")
+    
     if(request.method == 'POST'):
 
-        print("we are here 1")
+        
         profileform = ProfileForm(request.POST, request.FILES)
-        print("we are here 3")
+        
 
         if(profileform.is_valid()):
             profileauth = profileform.save(commit=False)
@@ -169,10 +167,10 @@ def signup(request):
             profileauth.profileimage.name = f"{profimg1[0]}.jpg"
             profileauth.profileimagename = profileauth.profileimage.name
             profileauth.save()
-            print(profileauth.profileimage.name)
+            
 
             global profileimage, username, gender, semester, email, ans
-            print(profileimage, username, gender, semester, email)
+            
 
             ans = True
             gender = profileauth.gender
@@ -181,7 +179,7 @@ def signup(request):
             email = profileauth.email
             profileimage = profileauth.profileimagename
 
-            print(profileimage, username, gender, semester, email)
+            
 
             profilecheck1 = check()
 
@@ -190,23 +188,22 @@ def signup(request):
             # profilecheck["profileimage"] = profileauth.profileimagename
             # print(profilecheck["profileimage"])
             # profilecheck["profileform"] = profileform
-            print(profilecheck1)
+            
             return render(request, "base.html", profilecheck1)
         else:
-            print("we are on the else page")
+            
             profileform = ProfileForm()
             profilecheck = check()
             profilecheck["profileform"] = profileform
-            print(profilecheck)
-            print("we are here 2")
+            
             profilecheck["alertmessage"] = "this email id has been taken"
             return render(request, "pages/signup.html", profilecheck)
     else:
-        print("we are on the else page")
+        
         profileform = ProfileForm()
         profilecheck = check()
         profilecheck["profileform"] = profileform
-        print(profilecheck)
+        
         return render(request, "pages/signup.html", profilecheck)
 
     return render(request, "pages/signup.html", profilecheck)
@@ -232,10 +229,9 @@ def upload(request):
                 newauth.email = email
                 newauth.save()
                 # print(a.image.name)
-                print(newauth.image.name)
+                
                 a = UserData.objects.filter(username='baibhab kumar pradhan').values()
-                print(a)
-
+                
                 # Getting the current instance object to display in the template
                 img_object = form.instance
 
