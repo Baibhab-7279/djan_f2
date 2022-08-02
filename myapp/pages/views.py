@@ -1,11 +1,10 @@
 import os
-from turtle import title
 from django.conf import settings
-from .forms import UserdataForm, ProfileForm
+from .forms import ProfileForm,UserdataForm
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Page, Contactform, Profile, Userdata, Title
+from .models import Page, Contactform, Profile, Title,UserData
 
 
 username = "Baibhab@7279"
@@ -26,10 +25,10 @@ def home(request):
     ch = check()
 
     global title
-    title = Title.objects.last()
+    title1 = Title.objects.last()
     print(title)
-    if(title):
-        ch["title"] = title
+    if(title1):
+        ch["title"] = title1
 
     else:
         ch["title"] = title
@@ -38,11 +37,11 @@ def home(request):
 
     print(ch)
 
-    a = Userdata.objects.filter(choise="public").values("image", "blogtext","email")
+    a = UserData.objects.filter(choise="public").values("image", "blogtext","email")
     print(a)
     c = []
     d = []
-    for i in range(len(a)):
+    for i in range(len(a)-1,-1,-1):
         b = a[i]
         print(b)
         c.append(b["image"])
@@ -67,7 +66,7 @@ def home(request):
     ch["content"] = d
 
     if(ans == True):
-        a1 = Userdata.objects.filter(choise="private").values("image", "blogtext","email")
+        a1 = UserData.objects.filter(choise="private").values("image", "blogtext","email")
         print(a)
         for i in range(len(a1)):
             b1 = a1[i]
@@ -229,7 +228,7 @@ def upload(request):
                 newauth.save()
                 # print(a.image.name)
                 print(newauth.image.name)
-                a = Userdata.objects.filter(username='baibhab kumar pradhan').values()
+                a = UserData.objects.filter(username='baibhab kumar pradhan').values()
                 print(a)
 
                 # Getting the current instance object to display in the template

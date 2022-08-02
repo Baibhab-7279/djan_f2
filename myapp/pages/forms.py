@@ -1,13 +1,13 @@
 from django.db import models  
 from django.forms import fields  
-from .models import Userdata,Profile
+from .models import Profile,UserData
 from django import forms  
   
   
 class UserdataForm(forms.ModelForm):  
     class Meta:  
         # To specify the model to be used to create form  
-        model = Userdata
+        model = UserData
         # It includes all the fields of model  
         exclude = ("username","uploadtime","imagename","email",)
 

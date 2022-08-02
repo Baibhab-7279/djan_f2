@@ -43,10 +43,11 @@ class Profile(models.Model):
         return self.username
 
 
-class Userdata(models.Model):
+class UserData(models.Model):
     ch = (("public","public"),("private","private"))
+    #id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     username = models.CharField(max_length=50,default="Baibhab@7279")
-    email = models.EmailField(max_length=100)
+    email = models.EmailField(max_length=100,default="abc@gmail.com")
     image = models.ImageField(upload_to = "images",blank=True)
     blogtext = models.TextField(default="",max_length=1000)
     uploadtime = models.DateTimeField(default=datetime.now,blank=True)

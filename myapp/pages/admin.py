@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page,Contactform,Profile,Userdata,Title
+from .models import Page,Contactform,Profile,Title,UserData
 
 # Register your models here.
 class TitleAdmin(admin.ModelAdmin):
@@ -22,5 +22,5 @@ class UserdataAdmin(admin.ModelAdmin):
 admin.site.register(Page,PageAdmin)
 admin.site.register(Contactform,ContactAdmin)
 admin.site.register(Profile,ProfileAdmin)
-admin.site.register(Userdata,UserdataAdmin)
+admin.site.register(UserData,UserdataAdmin)
 admin.site.register(Title,TitleAdmin)
