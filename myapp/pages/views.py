@@ -4,17 +4,18 @@ from .forms import ProfileForm,UserdataForm
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Page, Contactform, Profile, Title,UserData
+from .models import Page, Contactform, Profile, Title, UserData
 
 
 username = "Baibhab@7279"
 password = "Baibhab@7279"
-title = "post it"
+title2 = "post it"
 ans = False
 gender = "male"
 semester = "first"
 email = "mrbaibhab5816@gmail.com"
 profileimage = "maleprofile.png"
+titlepassword = "Baibhab@7279"
 
 
 # Create your views here.
@@ -24,14 +25,7 @@ def home(request):
 
     ch = check()
 
-    global title
-    title1 = Title.objects.last()
-    print(title)
-    if(title1):
-        ch["title"] = title1
-
-    else:
-        ch["title"] = title
+    
 
     # ch["images"] = img_list
 
@@ -94,6 +88,17 @@ def home(request):
 
         return render(request, 'pages/home.html', ch)
     print("we are here")
+    
+    print(ch)
+    global title2
+    title1 = Title.objects.last()
+    print(title1)
+    if(title1):
+        ch["title"] = title1
+
+    else:
+        ch["title"] = title2
+
     return render(request, 'pages/home.html', ch)
 
 
@@ -249,10 +254,20 @@ def upload(request):
     return render(request, "pages/upload.html", pas)
 
 
+def title(request):
+    if(request.method == "POST"):
+        titlechangepassword = request.POST["titlepassword"]
+        if(titlepassword == titlechangepassword):
+            title = request.POST["titleinput"]
+            tisa = Title(title = title)
+            tisa.save()
+            return redirect("/")
+    return render(request, "pages/title.html")
+
 def check():
     loginans = {
         "ans": ans,
-        "title": title,
+        "title": title2,
         "username": username,
         "gender": gender,
         "semester": semester,

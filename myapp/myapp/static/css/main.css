@@ -94,6 +94,17 @@ a:link{
     margin-left: 5px;
 }
 
+#baselogoutbutton{
+    width: 60px;
+    padding: 6px;
+    padding-left: 10px;
+    background-color: rgb(227, 77, 77);
+    border-radius: 25px;
+}
+
+#baselogoutbutton:hover{
+    background-color: red;
+}
 
 #navbar1{
     display: flex;
@@ -432,6 +443,11 @@ a:link{
     .aboutusprofileimage{
         width: 100px;
         height: 100px;   
+    }
+
+    #baselogoutbutton{
+        margin-left: auto;
+        margin-right: auto;
     }
 
 }
